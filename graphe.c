@@ -1,10 +1,5 @@
 #include "graphe.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "ListeAdj.h"
-
 void creerListesAdjacences(char *nomfichier, graphe *g) {
 	int indice, x;
 	char buff[255];
@@ -45,7 +40,7 @@ void creerListesAdjacences(char *nomfichier, graphe *g) {
 					fscanf(fichier, "%s", buff);
 					x = atoi(buff);
 					fscanf(fichier, "%s", buff);
-					poids = ²atoi(buff);
+					poids = atoi(buff);
 					insererListeAdj(g->l, indice, x, poids);
 				}
 			}
@@ -140,13 +135,11 @@ void creerMatriceAdjacences(char *nomfichier, graphe *g) {
 
 void afficherMatriceAdjacences(graphe *g) {
 	int i, j;
-	printf("\n -----------------------------------------------\n");
 	for (i = 0; i < g->nbSommet; ++i) {
 		printf("|");
 		for (j = 0; j < g->nbSommet; ++j)
-			printf(" %d |", g->matrice[i][j]);
+			printf(" %2d\t", g->matrice[i][j]);
 		printf("\n");
-		printf(" -----------------------------------------------\n");
 	}
 }
 

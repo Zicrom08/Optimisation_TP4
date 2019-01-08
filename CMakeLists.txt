@@ -22,4 +22,4 @@ add_executable(TP3
         ListeAdj.h
         main.c
         prim.c
-        prim.h)
+        prim.h cycle.c cycle.h)

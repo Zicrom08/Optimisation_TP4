@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "graphe.h"
-#include "liste.h"
-#include "file.h"
-#include "ensemble.h"
 #include "kruskal.h"
 #include "prim.h"
+#include "cycle.h"
 
 int main(int argc, char *argv[]) {
 	if (argc != 2) {
@@ -18,8 +15,7 @@ int main(int argc, char *argv[]) {
 
 	int choix = -1;
 	while (choix != 0) {
-		printf("TP6 - Arbres couvrants de poids minimal");
-		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\nChoix: ");
+		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\n[3] MatriceAdj\n[4] ListeAdj\n[5] CycleHamil\nChoix: ");
 		scanf("%d", &choix);
 		switch (choix) {
 			case 1:
@@ -27,6 +23,17 @@ int main(int argc, char *argv[]) {
 				break;
 			case 2:
 				genererAcpmPrim(g, 0);
+				break;
+			case 3:
+				afficherMatriceAdjacences(g);
+				break;
+			case 4:
+				afficherListeAdj(g->l);
+				break;
+			case 5:
+				enumCyclesHam(g);
+				break;
+			default:
 				break;
 		}
 	}

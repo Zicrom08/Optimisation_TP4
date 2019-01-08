@@ -5,9 +5,9 @@ tas *creeLP(graphe *g, int s) {
 	tas *ts = (tas *) malloc(sizeof(tas));
 	ts->taille = g->nbSommet;
 	ts->taille2 = g->nbSommet;
-	ts->t = (sommet_file *) malloc(sizeof(sommet_file) * (g->nbSommet));
+	ts->t = (sommet *) malloc(sizeof(sommet) * (g->nbSommet));
 	for (int i = 0; i < g->nbSommet; ++i) {
-		ts->t[i].sommet_file = i;
+		ts->t[i].sommet = i;
 		ts->t[i].pere = -1;
 		ts->t[i].distance = 999;
 	}
@@ -21,8 +21,8 @@ void construireTasMin(tas *ts) {
 		entasserMin(ts, i);
 }
 
-void swapNode(sommet_file *t, int a, int b) {
-	sommet_file swap = t[a];
+void swapNode(sommet *t, int a, int b) {
+	sommet swap = t[a];
 	t[a] = t[b];
 	t[b] = swap;
 }
@@ -51,12 +51,12 @@ int droit(int i) { return 2 * i + 2; }
 
 int gauche(int i) { return (2 * i + 1); }
 
-sommet_file extraire_min_tas(tas *ts) {
+sommet extraire_min_tas(tas *ts) {
 	if (ts->taille < 0) {
 		printf("Limite inférieure dépassée\n");
 		exit(0);
 	}
-	sommet_file min = ts->t[0];
+	sommet min = ts->t[0];
 	ts->t[0] = ts->t[ts->taille - 1];
 	ts->t[ts->taille - 1] = min;
 	ts->taille = ts->taille - 1;
@@ -76,7 +76,7 @@ void afficherAcpmPrim(tas *ts) {
 	int i;
 	printf("Arbre couvrant de poids minimum : \n");
 	for (i = ts->taille2 - 2; i > -1; i--) {
-		printf("%2d\t %2d \n", ts->t[i].pere, ts->t[i].sommet_file);
+		printf("%2d\t %2d \n", ts->t[i].pere, ts->t[i].sommet);
 	}
 	printf(" ------------------------ \n");
 	printf("\nLongueur de l'arbre : %d\n", distancePrim(ts));
@@ -100,7 +100,7 @@ int distancePrim(tas *t) {
 // fonction recherchant l'indice d
 int rechercheSommet(tas *t, int val) {
 	int i = 0;
-	while (i < t->taille && t->t[i].sommet_file != val)
+	while (i < t->taille && t->t[i].sommet != val)
 		++i;
 	return i;
 }
