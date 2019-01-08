@@ -29,10 +29,14 @@ void inserer(liste *, cellule *);
 
 cellule *rechercher(liste *, int);
 
+int contient(cellule *, int, int);
+
 void supprimer(liste *, cellule *);
 
 void afficherListe(liste *);
 
 int compteListe(liste *);
+
+cellule *minPoidsListe(liste *, cellule *, int);
 
 #endif

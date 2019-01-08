@@ -12,5 +12,6 @@ void permutationsCycles(int *, int, int, int, graphe *,
 
 int enumCyclesHam(graphe *);
 
+void heuristiqueppv(graphe *, int);
 
 #endif

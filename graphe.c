@@ -136,7 +136,6 @@ void creerMatriceAdjacences(char *nomfichier, graphe *g) {
 void afficherMatriceAdjacences(graphe *g) {
 	int i, j;
 	for (i = 0; i < g->nbSommet; ++i) {
-		printf("|");
 		for (j = 0; j < g->nbSommet; ++j)
 			printf(" %2d\t", g->matrice[i][j]);
 		printf("\n");

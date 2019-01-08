@@ -59,3 +59,19 @@ int enumCyclesHam(graphe *graphe) {
 	free(tabCycleHamMin);
 	return 0;
 }
+
+void heuristiqueppv(graphe *graphe, int sommet) {
+	cellule *tabCellule = (cellule *) malloc(sizeof(cellule) * graphe->nbSommet);
+	int found = 0, res = 0;
+	tabCellule[found] = *creerCellule(0, 0);
+	found++;
+	while (found != graphe->nbSommet) {
+		tabCellule[found] = *minPoidsListe(graphe->l->tabList[tabCellule[found - 1].value], tabCellule, found - 1);
+		res += tabCellule[found].poids;
+		found++;
+	}
+	for (int i = 0; i < graphe->nbSommet; ++i) {
+		printf("%d ", tabCellule[i].value);
+	}
+	printf("\nLongueur : %d \n", res);
+}

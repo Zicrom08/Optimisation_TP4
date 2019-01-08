@@ -57,6 +57,16 @@ cellule *rechercher(liste *l, int x) {
 	return tmp;
 }
 
+int contient(cellule *tab, int x, int tailletab) {
+	int res = 0, i = 0;
+	while (res == 0 && i != tailletab) {
+		if (tab[i].value == x)
+			res = 1;
+		i++;
+	}
+	return res;
+}
+
 void supprimer(liste *l, cellule *c) {
 	if (c->pred != NULL)
 		c->pred->succ = c->succ;
@@ -71,7 +81,6 @@ void supprimer(liste *l, cellule *c) {
 
 
 void afficherListe(liste *l) {
-	printf("l.tete ->");
 	cellule *tmp = l->tete;
 	while (tmp != NULL) {
 		printf(" %d (%d) ->", tmp->value, tmp->poids);
@@ -89,4 +98,17 @@ int compteListe(liste *l) {
 		tmp = tmp->succ;
 	}
 	return nbMot;
+}
+
+cellule *minPoidsListe(liste *l, cellule *tabCellule, int tailletab) {
+	cellule *tmp = l->tete;
+	cellule *min = creerCellule(-1, 100000);
+	while (tmp != NULL) {
+		if (contient(tabCellule, tmp->value, tailletab) == -1 && tmp->poids < min->poids) {
+			min->value = tmp->value;
+			min->poids = tmp->poids;
+		}
+		tmp = tmp->succ;
+	}
+	return min;
 }

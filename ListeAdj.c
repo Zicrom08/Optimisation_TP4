@@ -21,6 +21,7 @@ void detruireListeAdj(ListeAdj **th) {
 void afficherListeAdj(ListeAdj *th) {
 	int i;
 	for (i = 0; i < th->taille; ++i) {
+		printf("Sommet : %d -> ", i);
 		afficherListe(th->tabList[i]);
 		printf("%s", "\n");
 	}
