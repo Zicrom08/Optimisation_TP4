@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
 	int choix = -1;
 	while (choix != 0) {
-		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\n[3] MatriceAdj\n[4] ListeAdj\n[5] CycleHamil\n[6] Heuristique \n[7] KruskalSommet\nChoix: ");
+		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\n[3] Matrice_Adj\n[4] Liste_Adj\n[5] Cycle_Hamil\n[6] Heuristique \n[7] Acpm_Kruskal_Sans_Sommet_0\nChoix: ");
 		scanf("%d", &choix);
 		switch (choix) {
 			case 1:

@@ -1,4 +1,4 @@
-#include <zconf.h>
+#include <limits.h>
 #include "cycle.h"
 
 void afficherCycleHam(int *t, int n, int longueur) {
@@ -80,12 +80,6 @@ int mintab(int *tab, int taille) {
 }
 
 void heuristiqueppv(graphe *graphe, int sommet) {
-	/*int *tabChoisi = (int *) malloc(sizeof(int) * graphe->nbSommet);
-	int found = 1, res = 0, tmp = 0;
-	tabChoisi[0] = 0;
-	while (found != graphe->nbSommet) {
-		if (contienttab(tabChoisi,found,mintab(graphe->matrice[tabChoisi[found]],graphe->nbSommet)))
-	}*/
 	cellule *tabCellule = (cellule *) malloc(sizeof(cellule) * graphe->nbSommet);
 	int found = 0, res = 0;
 	tabCellule[found] = *creerCellule(0, 0);

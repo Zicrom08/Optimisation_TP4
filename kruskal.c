@@ -114,6 +114,7 @@ void genererAcpmKruskalSommet(graphe *g) {
 
 int estcyclehamiltonien(arete **tab, int taille) {
 	int *tabCount = (int *) malloc(sizeof(int) * taille);
+	memset(tabCount, 0, sizeof(int) * taille);
 	int res = 1;
 	for (int i = 0; i < taille; ++i) {
 		tabCount[tab[i]->s1]++;
@@ -123,6 +124,7 @@ int estcyclehamiltonien(arete **tab, int taille) {
 	}
 	if (tab[0]->s1 != tab[taille - 1]->s2)
 		res = 0;
+	free(tabCount);
 	return res;
 }
 
