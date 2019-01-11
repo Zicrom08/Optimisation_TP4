@@ -47,3 +47,12 @@ int compteTabListe(ListeAdj *la) {
 	}
 	return count;
 }
+
+int compteTabListeSommet(ListeAdj *la) {
+	int count = 0;
+	int i;
+	for (i = 1; i < la->taille; ++i) {
+		count += compteListe(la->tabList[i]);
+	}
+	return count;
+}

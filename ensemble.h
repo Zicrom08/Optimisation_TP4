@@ -45,4 +45,9 @@ int distanceKruskal(arete **, int);
 
 void afficherKruskal(arete **, int);
 
+void afficherKruskalSommet(arete **, int);
+
+void afficherAreteSommet(arete **, int);
+
+
 #endif

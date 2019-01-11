@@ -15,6 +15,8 @@ cellule *creerCellule(int, int);
 
 void detruireCellule(cellule **);
 
+void afficherCellule(cellule);
+
 
 typedef struct liste {
 	int nbElem;//juste une value pour comparer avec compterListe 5)

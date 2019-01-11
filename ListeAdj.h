@@ -23,4 +23,6 @@ void supprimerListeAdj(ListeAdj *, int, int);
 
 int compteTabListe(ListeAdj *);
 
+int compteTabListeSommet(ListeAdj *);
+
 #endif

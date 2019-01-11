@@ -58,8 +58,8 @@ cellule *rechercher(liste *l, int x) {
 }
 
 int contient(cellule *tab, int x, int tailletab) {
-	int res = 0, i = 0;
-	while (res == 0 && i != tailletab) {
+	int res = -1, i = 0;
+	while (res == -1 && i != tailletab) {
 		if (tab[i].value == x)
 			res = 1;
 		i++;
@@ -102,7 +102,8 @@ int compteListe(liste *l) {
 
 cellule *minPoidsListe(liste *l, cellule *tabCellule, int tailletab) {
 	cellule *tmp = l->tete;
-	cellule *min = creerCellule(-1, 100000);
+	cellule *min = creerCellule(0, 100000);
+
 	while (tmp != NULL) {
 		if (contient(tabCellule, tmp->value, tailletab) == -1 && tmp->poids < min->poids) {
 			min->value = tmp->value;
@@ -111,4 +112,8 @@ cellule *minPoidsListe(liste *l, cellule *tabCellule, int tailletab) {
 		tmp = tmp->succ;
 	}
 	return min;
+}
+
+void afficherCellule(cellule cellule) {
+	printf("Value : %d Poids : %d \n", cellule.value, cellule.poids);
 }

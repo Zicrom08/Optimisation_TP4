@@ -7,4 +7,9 @@
 
 void genererAcpmKruskal(graphe *);
 
+void genererAcpmKruskalSommet(graphe *);
+
+int estcyclehamiltonien(arete **, int);
+
+
 #endif

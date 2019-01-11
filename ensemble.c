@@ -103,3 +103,20 @@ void afficherKruskal(arete **t, int taille) {
 	}
 	printf("Longueur de l'arbre : %d\n", distanceKruskal(t, taille));
 }
+
+void afficherKruskalSommet(arete **t, int taille) {
+	int i;
+	printf("Arbre couvrant de poids minimum sans le sommet 0: \n");
+	for (i = 0; i < taille; ++i) {
+		printf("%2d\t %2d\n", t[i]->s1, t[i]->s2);
+	}
+	printf("Longueur de l'arbre : %d\n", distanceKruskal(t, taille));
+}
+
+void afficherAreteSommet(arete **t, int taille) {
+	int i;
+	printf("Arete du sommet 0: \n");
+	for (i = 0; i < taille; ++i) {
+		printf("%2d\t %2d\n", t[i]->s1, t[i]->s2);
+	}
+}

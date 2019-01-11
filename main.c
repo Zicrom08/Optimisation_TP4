@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
 	int choix = -1;
 	while (choix != 0) {
-		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\n[3] MatriceAdj\n[4] ListeAdj\n[5] CycleHamil\n[6] Heuristique \nChoix: ");
+		printf("\n\n[0] Quitter\n[1] Kruskal\n[2] PRIM\n[3] MatriceAdj\n[4] ListeAdj\n[5] CycleHamil\n[6] Heuristique \n[7] KruskalSommet\nChoix: ");
 		scanf("%d", &choix);
 		switch (choix) {
 			case 1:
@@ -35,6 +35,9 @@ int main(int argc, char *argv[]) {
 				break;
 			case 6:
 				heuristiqueppv(g, 0);
+				break;
+			case 7:
+				genererAcpmKruskalSommet(g);
 				break;
 			default:
 				break;

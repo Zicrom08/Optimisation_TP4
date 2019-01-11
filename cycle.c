@@ -60,18 +60,44 @@ int enumCyclesHam(graphe *graphe) {
 	return 0;
 }
 
+int contienttab(int *tab, int taille, int x) {
+	for (int i = 0; i < taille; ++i) {
+		if (tab[i] == x)
+			return 1;
+	}
+	return 0;
+}
+
+int mintab(int *tab, int taille) {
+	int min = INT_MAX, res = -1;
+	for (int i = 0; i < taille; ++i) {
+		if (tab[i] < min) {
+			min = tab[i];
+			res = i;
+		}
+	}
+	return res;
+}
+
 void heuristiqueppv(graphe *graphe, int sommet) {
+	/*int *tabChoisi = (int *) malloc(sizeof(int) * graphe->nbSommet);
+	int found = 1, res = 0, tmp = 0;
+	tabChoisi[0] = 0;
+	while (found != graphe->nbSommet) {
+		if (contienttab(tabChoisi,found,mintab(graphe->matrice[tabChoisi[found]],graphe->nbSommet)))
+	}*/
 	cellule *tabCellule = (cellule *) malloc(sizeof(cellule) * graphe->nbSommet);
 	int found = 0, res = 0;
 	tabCellule[found] = *creerCellule(0, 0);
 	found++;
 	while (found != graphe->nbSommet) {
-		tabCellule[found] = *minPoidsListe(graphe->l->tabList[tabCellule[found - 1].value], tabCellule, found - 1);
+		tabCellule[found] = *minPoidsListe(graphe->l->tabList[tabCellule[found - 1].value], tabCellule, found);
 		res += tabCellule[found].poids;
 		found++;
 	}
 	for (int i = 0; i < graphe->nbSommet; ++i) {
 		printf("%d ", tabCellule[i].value);
 	}
+	res += graphe->matrice[tabCellule[found - 1].value][0];
 	printf("\nLongueur : %d \n", res);
 }

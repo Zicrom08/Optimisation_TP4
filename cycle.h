@@ -12,6 +12,10 @@ void permutationsCycles(int *, int, int, int, graphe *,
 
 int enumCyclesHam(graphe *);
 
+int contienttab(int *, int, int);
+
+int mintab(int *, int);
+
 void heuristiqueppv(graphe *, int);
 
 #endif
